@@ -1,0 +1,35 @@
+using System;
+class program
+{
+    static void Main()
+    {
+        //Ask User for Input
+        Console.Write("Enter the name of the Gas Station:  ");
+        string station = Console.ReadLine();
+
+        Console.Write("Please enter the price of gas: ");
+        double pricePerGallon = Convert.ToDouble(Console.ReadLine());
+        Console.Write("How many Gallons? ");
+        double gallons = Convert.ToDouble(Console.ReadLine());
+        Console.Write("What is the tax % for this transaction: ");
+        double taxRate = Convert.ToDouble(Console.ReadLine());
+        //Calculations
+        double subtotal = pricePerGallon * gallons;
+        double tax = subtotal * (taxRate / 100);
+        double total = subtotal + tax;
+        //Display output
+        Console.WriteLine("\n *******************************************");
+        Console.WriteLine($"                                   {station.ToUpper()}");
+        Console.WriteLine("************************************************");
+        Console.WriteLine($"Gas Price :                      ${pricePerGallon:F2}");
+        Console.WriteLine($"Number of Gallons:          {gallons}");
+        Console.WriteLine($"Tax Rate:                           {taxRate}%");
+        Console.WriteLine($"Subtotal:                           ${subtotal:F2}");
+        Console.WriteLine($" Tax:                                 ${tax:F2}");
+        Console.WriteLine($"Total:                               ${total:F2}");
+        Console.WriteLine(" * ***********************************************");
+        Console.WriteLine("\nPress any key to exit...");
+        Console.ReadKey();
+
+    }
+}
