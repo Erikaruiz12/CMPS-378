@@ -1,0 +1,98 @@
+/*
+ * Erika Ruiz
+ * 10/22/25
+ * Quiz 1
+ * Street Food POS
+ */
+using System;
+
+class TacoLocoPOS
+{
+    static void Main()
+    {
+        //Establish combo names, price(with and without drink), and the tax rate
+        string[] comboNames = { " Tacos Combo", "Burrito Meal", "Quesadilla Special", "Loaded Nachos" };
+        double[] noDrink = { 7.00, 8.50, 6.00, 5.75 };
+        double[] withDrink = { 9.00, 10.50, 8.00, 7.75 };
+        double taxRate = 0.095;
+        //Writes the Menus
+        Console.WriteLine("******* Welcome to Taco Loco POS System ******");
+        Console.WriteLine("Menu:");
+        Console.WriteLine("A -  Tacos Combo - $7.00 / $9.00 with drink");
+        Console.WriteLine("B - Burrito Meal - $8.50 / $10.50 with drink");
+        Console.WriteLine("C - Quesadilla Special - $6.00 / $8.00 with drink");
+        Console.WriteLine("D - Loaded Nachos - $5.75 / $7.75 with drink");
+        //Asks for the Customers Name
+        Console.Write("Enter Name: ");
+        string customerName = Console.ReadLine();
+        //Sets the combo letters
+        string comboNum;
+        int comboLet= -1;
+        do
+        {
+            Console.Write("Enter Combo Code (A B C D): ");
+            comboNum = Console.ReadLine().Trim().ToUpper();
+            if (comboNum == "A") comboLet = 0;
+            else if (comboNum == "B") comboLet = 1;
+            else if (comboNum == "C") comboLet = 2;
+            else if (comboNum == "D") comboLet = 3;
+        } while (comboLet == -1);
+        //asks for drink or no drink
+        string drinkInput;
+        bool drinkInclude = false;
+        do
+        {
+            Console.Write("Would you like to add a Drink? (Y/N): ");
+            drinkInput = Console.ReadLine().Trim().ToUpper();
+            if (drinkInput == "Y") drinkInclude = true;
+            else if (drinkInput == "N") drinkInclude = false;
+        } while (drinkInput != "Y" && drinkInput != "N");
+        //sets quantity of items
+        int quantity = 0;
+        do
+        {
+            Console.Write("How many combos would you like? ");
+            string qtyInput = Console.ReadLine();
+            if (!int.TryParse(qtyInput, out quantity) || quantity <= 0)
+            {
+                Console.WriteLine("Invalid quantity. Please enter a positive number.");
+                quantity = 0;
+            }
+        } while (quantity <= 0);
+        //sets the price depending on yes or no drink
+        double pricePerItem;
+        if(drinkInclude)
+        {
+            pricePerItem = withDrink[comboLet];
+        }
+        else
+        {
+            pricePerItem = noDrink[comboLet];
+        }
+        //Calculates the tax rate
+        double subtotal = pricePerItem * quantity;
+        double tax = subtotal * taxRate;
+        double total = subtotal + tax;
+        //Determines if free dessert is given
+        bool freeDessert = subtotal >= 20.00;
+        //Prints the recipt
+        Console.WriteLine("\n=========== TACO LOCO RECEIPT ===========");
+        Console.WriteLine("Customer Name: " + customerName);
+        Console.WriteLine("Combo Ordered: " + comboNames[comboLet]);
+        Console.WriteLine("Drink Included: " + (drinkInclude ? "Yes" : "No"));
+        Console.WriteLine("Quantity: " + quantity);
+        Console.WriteLine("-----------------------------------------");
+        Console.WriteLine("Price Per Item: $" + pricePerItem.ToString("0.00"));
+        Console.WriteLine("Subtotal: $" + subtotal.ToString("0.00"));
+        Console.WriteLine("Tax (9.5%): $" + tax.ToString("0.00"));
+        Console.WriteLine("-----------------------------------------");
+        Console.WriteLine("Total Cost: $" + total.ToString("0.00"));
+        //Gives the free dessert if their total is above $20
+        if (freeDessert)
+            Console.WriteLine("Congratulations! You get a free dessert!");
+        Console.WriteLine("=========================================");
+        Console.WriteLine("Thank you for supporting Taco Loco!");
+    }
+}
+
+
