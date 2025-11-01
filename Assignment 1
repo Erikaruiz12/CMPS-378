@@ -1,0 +1,505 @@
+/*
+ Erika Ruiz
+ Assignment 1
+ 10/08/25
+ C#
+ */
+//PROBLEM 1:
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string name;
+        string gender;
+        string means;
+        int age;
+        int fHeight;
+        int iHeight;
+        int totInches;
+            double weight;
+        double bmi;
+        //Ask the user for name ,age ,gender , height, and weight.
+        Console.Write("Please enter your name: ");
+        name = Console.ReadLine();
+        Console.Write("Please enter your age: ");
+        age = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Please enter your gender (M/F) : ");
+        gender = Console.ReadLine();
+        Console.Write("Please enter your height (Feet) : ");
+        fHeight = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Please enter your height (Inches) : ");
+        iHeight = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Please enter your weight (Pounds) :  ");
+        weight = Convert.ToDouble(Console.ReadLine());
+        //changes heigh to inches
+        totInches = (fHeight * 12) + iHeight;
+        //BMI CALCULATE
+        bmi = 703 * (weight / (totInches * totInches));
+        if (bmi < 16)
+        {
+            means = "Servere Thiness";
+        }
+        else if (bmi < 17)
+        {
+            means = "Moderate Thiness";
+        }
+        else if (bmi < 18.5)
+        {
+            means = "Wild Thiness";
+
+        }
+        else if (bmi < 25)
+        {
+            means = "Average ";
+
+        }
+        else if (bmi < 30)
+        {
+            means = "Overweight";
+        }
+        else if (bmi < 35)
+        {
+            means = "Obese Class I ";
+
+        }
+        else if (bmi <40) {
+            means = "Obese Class II ";
+        
+        }
+        else
+        {
+            means = "Obese Class III ";
+        }
+        Console.WriteLine();
+        Console.WriteLine($"Hi {name}, ");
+        Console.WriteLine($"You are a {gender}. You are {age} year old.");
+        Console.WriteLine($"You are currently {fHeight} feet {iHeight} inches tall and weigh {weight} pounds.");
+        Console.WriteLine($"Your BMI is {bmi:F1}, which means {means}.");
+        Console.WriteLine("Thank you for using BMI Calculator! ");
+    }
+}
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//PROBLEM 2:
+using System;
+
+    class Program
+    {
+        static void Main()
+        {
+        string form = "Y";
+        string month;
+        int day;
+        int year;
+
+        Console.WriteLine("Welcome to Birthday Date Meaning Generator!");
+        while(form.ToUpper() == "Y") {
+            Console.Write("Please enter your birth month: ");
+            month = Console.ReadLine();
+            Console.Write("Please enter your birth date: ");
+            day = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Please enter your birth year: ");
+            year = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine();
+
+            switch (month.ToLower())
+            {
+                case "january":
+                    Console.WriteLine("The month of January means JANUS! ");
+                    break;
+                case "febuary":
+                    Console.WriteLine("The month of January means love and loyalty! ");
+                    break;
+                case "march":
+                    Console.WriteLine("The month of march means creativity and imagination! ");
+                    break;
+                case "april":
+                    Console.WriteLine("The month of April means dominate and straighfoward! ");
+                    break;
+                case "may":
+                    Console.WriteLine("The month of May means fun and intelligence! ");
+                    break;
+                case "june":
+                    Console.WriteLine("The month of June means sensitive and loveable! ");
+                    break;
+                case "july":
+                    Console.WriteLine("The month of July means adventourus and kind! ");
+                    break;
+                case "august":
+                    Console.WriteLine("The month of August means kind hearted and inspiring! ");
+                    break;
+                case "september":
+                    Console.WriteLine("The month of September means spiritual and melancholic! ");
+                    break;
+                case "october":
+                    Console.WriteLine("The month of October means fourtune and luck! ");
+                    break;
+                case "november":
+                    Console.WriteLine("The month of November means empathy and positivity! ");
+                    break;
+                case "december":
+                    Console.WriteLine("The month of December means responsible! ");
+                    break;
+                default:
+                    Console.WriteLine("Invalid Month. Try Again! ");
+                    break;
+            }
+            switch (day)
+            {
+                case 1:
+                    Console.WriteLine("The 1st means self starter and determined!");
+                    break;
+                case 2:
+                    Console.WriteLine("The 2nd means great talent and intuition!");
+                    break;
+                case 3:
+                    Console.WriteLine("The 3rd means expressive and creative!");
+                    break;
+                case 4:
+                    Console.WriteLine("The 4th means stability and rationality!");
+                    break;
+                case 5:
+                    Console.WriteLine("The 5th means flexibilty!");
+                    break;
+                case 6:
+                    Console.WriteLine("The 6th means nurturer!");
+                    break;
+                case 7:
+                    Console.WriteLine("The 7th means refine and spiritual!");
+                    break;
+                case 8:
+                    Console.WriteLine("The 8th means success!");
+                    break;
+                case 9:
+                    Console.WriteLine("The 9th means compassionate!");
+                    break;
+                case 10:
+                    Console.WriteLine("The 10th means leadership!");
+                    break;
+                case 11:
+                    Console.WriteLine("The 11th means aware and insightful! ");
+                    break;
+                case 12:
+                    Console.WriteLine("The 12th means creativity!");
+                    break;
+                case 13:
+                    Console.WriteLine("The 13th means optimistic!");
+                    break;
+                case 14:
+                    Console.WriteLine("The 14th means open-minded!");
+                    break;
+                case 15:
+                    Console.WriteLine("The 15th means curious and social!");
+                    break;
+                case 16:
+                    Console.WriteLine("The 16th means inquisitive!");
+                    break;
+                case 17:
+                    Console.WriteLine("The 17th means independent and ambitius!");
+                    break;
+                case 18:
+                    Console.WriteLine("The 18th means open hearted!");
+                    break;
+                case 19:
+                    Console.WriteLine("The 19th means self sufficiency!");
+                    break;
+                case 20:
+                    Console.WriteLine("The 20th means kind and comical !");
+                    break;
+                case 21:
+                    Console.WriteLine("The 21st means natural commnicator !");
+                    break;
+                case 22:
+                    Console.WriteLine("The 22nd means hard working and determined!");
+                    break;
+                case 23:
+                    Console.WriteLine("The 23rd means easygoing!");
+                    break;
+                case 24:
+                    Console.WriteLine("The 24th means heart of gold!");
+                    break;
+                case 25:
+                    Console.WriteLine("The 25th means curious and aware!");
+                    break;
+                case 26:
+                    Console.WriteLine("The 26th means desire to succeed!");
+                    break;
+                case 27:
+                    Console.WriteLine("The 27th means compasionate!");
+                    break;
+                case 28:
+                    Console.WriteLine("The 28th means capable leader!");
+                    break;
+                case 29:
+                    Console.WriteLine("The 29th  means powerful subconscious!");
+                    break;
+                case 30:
+                    Console.WriteLine("The 30th means inovated thinker!");
+                    break;
+                case 31:
+                    Console.WriteLine("The 31st means practical and imaginitive!");
+                    break;
+            }
+            if (year >= 2000 && year <= 2009)
+            {
+                Console.WriteLine($"The year of {year} means that you are a Millennial!");
+            }
+            else if (year >= 2010 && year <= 2023)
+            {
+                Console.WriteLine($"The year of {year} means you belong to Generation Alpha.");
+            }
+            else
+            {
+                Console.WriteLine("Years out of range (2000 - 2023");
+            }
+                Console.WriteLine("\nWould you like to try another birthday? (Y/N :");
+            form = Console.ReadLine();
+           
+
+
+        }
+        Console.WriteLine("Thank you for playing!");
+        }
+    }
+//---------------------------------------------------------------------------------------------------------------------------------
+//PROBLEM 3: 
+using System;
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        //Declarations
+        string name;
+        int days;
+        double totalMiles;
+        double mpg;
+        double gasPrice;
+        double hotelCostPerN;
+        double foodBudget;
+        double gasNeeded;
+        double gasCost;
+        double hotelCost;
+        double foodCost;
+        double totalTriCos;
+
+        //Welcome Message
+        Console.WriteLine("--------------Welcome to Road Trip Budget Estimator! --------\n");
+
+        //Inputs
+        Console.Write("Please enter your name: ");
+        name = Console.ReadLine();
+
+        Console.Write("How many days is your trip? ");
+        days = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("How many miles will you be traveling? ");
+        totalMiles = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("What is your vehicles MPG (Miles Per Gallon) ?");
+        mpg = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("What is the average cost of gas in your state? ");
+        gasPrice = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("WHat is your nightly hotel cost?");
+        hotelCostPerN = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("What is your daily food budget?");
+        foodBudget = Convert.ToDouble(Console.ReadLine());
+        //CALCS
+        gasNeeded = totalMiles / mpg;
+        gasCost = gasNeeded * gasPrice;
+        hotelCost = hotelCostPerN * (days - 1);
+        foodCost = foodBudget * days;
+        totalTriCos = gasCost + hotelCost + foodCost;
+        //Display
+        Console.WriteLine("\n--------------------Road Trip Budget Summary------------------");
+        Console.WriteLine($"Name: {name}");
+        Console.WriteLine($"Trip Durations: {days} days.");
+        Console.WriteLine($"Total Miles: {totalMiles} miles.");
+        Console.WriteLine($"Fuel Efficiency: {mpg} mpg.");
+        Console.WriteLine($"Gas Price: ${gasPrice:F2}");
+        Console.WriteLine($"Hotel Cost Per Night: ${hotelCostPerN:F2}");
+        Console.WriteLine($"Daily Food Budget: ${foodBudget:F2}");
+        Console.WriteLine("----------------------------------------------------------------------------");
+        Console.WriteLine($"Gas Needed: {gasNeeded:F2} gallons.");
+        Console.WriteLine($"Estimated Gas Cost: ${gasCost:F2}");
+        Console.WriteLine($"Estimated Hotel Cost: ${hotelCost:F2}");
+        Console.WriteLine($"Estimated Food Cost: ${foodCost:F2}");
+        Console.WriteLine("-----------------------------------------------------------------------------");
+        Console.WriteLine("Thank You for using Road Trip Budget Simulator. ");
+        
+
+        }
+    }
+//-------------------------------------------------------------------------------------------------------------------------
+//PROBLEM 4
+using System;
+
+
+
+class Program
+{
+
+    static void Main()
+    {
+        // declarations
+        string name;
+        double kWh;
+        double hcf;
+        double elecCost = 0.0;
+        double elecCharge;
+        double watCost = 0.0;
+        double watCharge;
+        double bill;
+        Console.WriteLine("****** Welcome to LADWP Utility Bill Calculator ******");
+
+        //user inputs
+        Console.Write("Enter your name: ");
+        name = Console.ReadLine();
+
+        Console.Write("Enter Electricity Usagae (kWh): ");
+        kWh = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Enter Water usage (HCF)");
+        hcf = Convert.ToDouble(Console.ReadLine());
+
+        if (kWh < 0)
+        {
+            Console.WriteLine("Cannot input a negative number! Try again.");
+        }
+        //Rate Calculations
+        else if (kWh <= 199)
+        {
+            elecCost = 0.13;
+        }
+        else if (kWh <= 499)
+        {
+            elecCost = 0.17;
+        }
+        else if (kWh <= 999)
+        {
+            elecCost = 0.21;
+        }
+        else if (kWh >= 1000)
+        {
+            elecCost = 0.26;
+        }
+        //Calculations 
+        elecCharge = kWh * elecCost;
+
+        //Water usuage calulations
+        if (hcf < 0)
+        {
+            Console.WriteLine("You cannot use a negative amout of water. Try Again.");
+            return;
+        }
+        else if (hcf <= 9)
+        {
+            watCost = 2.30;
+        }
+        else if (hcf <= 24)
+        {
+            watCost = 3.10;
+
+        }
+        else if (hcf <= 39)
+        {
+            watCost = 4.20;
+        }
+        else
+        {
+            watCost = 5.15;
+        }
+        watCharge = hcf * watCost;
+
+        bill = elecCharge + watCharge;
+        //display
+        Console.WriteLine("\n------------------ LADWP MONTHLY BIL------------------------");
+        Console.WriteLine($"Customer Name: {name}");
+        Console.WriteLine($"Electricatty Usage: {kWh} kWh");
+        Console.WriteLine($"Rate Applied: ${elecCost:F2} per kWh");
+        Console.WriteLine($"Electricity Charge: ${elecCharge:F2}");
+        Console.WriteLine($"Water Usage: {hcf} HCF");
+        Console.WriteLine($"Rate Applied: ${watCost:F2} per HCF");
+        Console.WriteLine($"Water Charge: ${watCharge:F2}");
+        Console.WriteLine("------------------------------------------");
+        Console.WriteLine($"Total Amount Due: ${bill:F2}");
+        Console.WriteLine("----------------------------------------------------------------------------");
+        Console.WriteLine("Thank you for using LADWP!");
+    }
+}
+//----------------------------------------------------------------------------------------------------------------
+//Problem 5
+using System;
+
+
+    class Program
+    {
+        static void Main()
+        {
+        string name;
+        int speed;
+        string plan;
+        double basePlan = 0.0;
+        double staticCost = 0.0;
+        double sub;
+        double tax;
+        double tot;
+        Console.WriteLine("****** Welcome to AT&T Fiber Internet Billing System ******");
+
+        //user promopy
+        Console.Write("Please enter your name: ");
+        name = Console.ReadLine();
+
+        Console.Write("Select Internet Plan Speed ( 300 | 500 | 1000| 2000 | 5000 Mbps): ");
+        speed = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Would yiou like to add Static Ip? Y/ N :");
+        plan = Console.ReadLine().ToUpper();
+
+        switch (speed)
+        {
+            case 300:
+                basePlan = 55.00;
+                break;
+            case 500:
+                basePlan = 65.00;
+                break;
+            case 1000:
+                basePlan = 80.00;
+                break;
+            case 2000:
+                basePlan = 110.00;
+                break;
+            case 5000:
+                basePlan = 180.00;
+                break;
+        }
+        if(plan == "Y")
+        {
+            staticCost = 15.00;
+        }
+
+        sub = basePlan + staticCost;
+        tax = sub * 0.095;
+        tot = sub + tax;
+        Console.WriteLine("\n----------------------------- AT&T FIBER BILLING SUMMARY --------------------------");
+        Console.WriteLine($"Customer Name: {name}");
+        Console.WriteLine($"Plan Speed: {speed} Mbps");
+        Console.WriteLine($"Base Price: ${basePlan:F2}");
+        Console.WriteLine($"Static IP: ${staticCost:F2}");
+        Console.WriteLine("--------------------------------------------");
+        Console.WriteLine($"Subtotal: ${sub:F2}");
+        Console.WriteLine($"Tax (9.5%): ${tax:F2}");
+        Console.WriteLine("--------------------------------------------");
+        Console.WriteLine($"Total Due: ${tot:F2}");
+        Console.WriteLine("---------------------------------------------------------------------------------------------------------");
+        Console.WriteLine("Thank you for choosing AT&T Fiber!");
+    }
+    }
+
+
