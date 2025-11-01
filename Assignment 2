@@ -1,0 +1,122 @@
+/*
+ Erika Ruiz
+ Assignment 1
+ 10/29/25
+ C#
+ */
+//Problem 1
+using System;
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        string name;
+        int count;
+        double totIncome = 0;
+        string highProjName = " ";
+        double highIncome=0;
+        string projName;
+        double hours;
+        double hourly;
+        double projIncome;
+        double avg;
+        Console.WriteLine("****** Welcome to Freelance Project Income Tracker ******");
+
+        Console.Write("Please enter your name: ");
+        name = Console.ReadLine();
+
+        Console.Write("How many projects would you like to enter?");
+        count = Convert.ToInt32(Console.ReadLine());
+         
+        for(int i = 1; i <= count; i++)
+        {
+            Console.WriteLine($"Project # {i}: ");
+            Console.Write("Enter Project Name: ");
+            projName = Console.ReadLine();
+            Console.Write("How many hours were worked? ");
+            hours = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Enter hourly rate: ");
+            hourly = Convert.ToDouble(Console.ReadLine());
+            
+            projIncome = hours * hourly;
+            totIncome += projIncome;
+            if (projIncome > highIncome)
+            {
+                highIncome = projIncome;
+                highProjName = projName;
+
+
+            }
+        }
+        avg = totIncome / count;
+
+        Console.WriteLine("--------------------Freelance Income Summary-----------------");
+        Console.WriteLine($"Freelancer Name: {name}");
+        Console.WriteLine($"Project Logged: {count}");
+        Console.WriteLine($"Total Income: $ {totIncome:F2}");
+        Console.WriteLine($"Average Project Income: ${avg:F2}");
+        Console.WriteLine($"Highest Earning Project: {highProjName} (${highIncome:F2})");
+        Console.WriteLine("-----------------------------------------------------------------------------");
+        Console.WriteLine("Thank you for using the Income Tracker!");
+    }
+//---------------------------------------------------------------------------------------------------------------------------
+//Problem 2
+using System;
+
+    class Program
+    {
+    static void Main()
+    {
+        string name;
+        string category;
+        double total = 0;
+        int count = 0;
+        string highCat = " ";
+        double highAmou = 0;
+        double amount;
+        double avg;
+        Console.WriteLine("****** Welcome to Monthly Expense Tracker ******");
+
+        Console.Write("Enter your name: ");
+        name = Console.ReadLine();
+        while (true)
+        {
+            Console.Write("Enter expense category (or type 'done' to stop) ");
+            category = Console.ReadLine();
+            if (category.ToLower() == "done")
+            {
+                break;
+            }
+            Console.Write("Enter amount (or -1 to quit): ");
+            amount = Convert.ToDouble(Console.ReadLine());
+            if (amount == -1)
+            {
+                break;
+            }
+            total += amount;
+            count++;
+            if (amount > highAmou)
+            {
+                highAmou = amount;
+                highCat = category;
+            }
+
+        }
+        avg = (count > 0) ? total / count : 0;
+        Console.WriteLine("-------------------Monthly Expense Summary----------------");
+        Console.WriteLine($"Name: {name} ");
+        Console.WriteLine($"Total Entries: {count}");
+        Console.WriteLine($"Total Amount Spent: ${total:F2}");
+        Console.WriteLine($"Average Expense: ${avg:F2}");
+        Console.WriteLine($"Highest Spending Category: {highCat}");
+        Console.WriteLine("----------------------------------------------------");
+        Console.WriteLine("Thank you for using the Monthly Expense Tracker. ");
+
+        }
+    }
+
+
+}
