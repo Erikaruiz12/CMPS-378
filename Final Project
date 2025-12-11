@@ -1,0 +1,90 @@
+/*
+* Personal Finance Tracker
+* Kimberly Equihua, Yvonne Resendiz, Erika Ruiz
+* 11/08/2025
+* CMPS 378 C#
+*/
+using System;
+using System.Collections.Generic;
+using System.IO;
+namespace FinanceTra
+{
+class FinanceTra
+{
+
+static string filePath = "transactions.txt";
+static List<string> transactions = new List<string>();
+static void Main()
+{
+if (File.Exists(filePath))
+transactions.AddRange(File.ReadAllLines(filePath));
+bool running = true;
+while (running)
+{
+Console.WriteLine("\n------------------- Personal Finance Tracker -------------------");
+Console.WriteLine("1. Add Transaction");
+Console.WriteLine("2. View Transactions");
+Console.WriteLine("3. View Total");
+Console.WriteLine("4. Save and Exit");
+Console.Write("Enter your choice (1-4): ");
+string choice = Console.ReadLine();
+if(choice == "1")
+NewTransaction();
+else if (choice == "2")
+ViewTransactions();
+else if (choice == "3")
+ViewTotal();
+else if (choice == "4")
+{
+File.WriteAllLines(filePath, transactions);
+
+Console.WriteLine("Saved! Goodbye!");
+running = false;
+}
+else
+Console.WriteLine("Invalid Choice.");
+}
+Console.WriteLine("Press any key to close...");
+Console.ReadKey();
+}
+private static void NewTransaction()
+{
+Console.Write("Enter Amount: ");
+if (!double.TryParse(Console.ReadLine(), out double amount))
+{
+Console.WriteLine("Invalid amount. Transaction cancelled.");
+return;
+}
+Console.Write("Enter Category: ");
+string newCat = Console.ReadLine();
+Console.Write("Enter Date (MM/DD/YYYY): ");
+string date = Console.ReadLine();
+string entry = $"{date} | {newCat} | {amount:F2}";
+transactions.Add(entry);
+Console.WriteLine("Transaction added!");
+}
+private static void ViewTransactions()
+{
+if (transactions.Count == 0)
+{
+Console.WriteLine("No transactions yet.");
+return;
+}
+Console.WriteLine("\n--- Transactions ---");
+foreach (var t in transactions)
+Console.WriteLine(t);
+
+}
+private static void ViewTotal()
+{
+double total = 0;
+foreach (var t in transactions)
+{
+var parts = t.Split('|');
+if (parts.Length >= 1 && double.TryParse(parts[2].Trim(), out double amount))
+total += amount;
+}
+Console.WriteLine($"\nTotal Amount: ${total:F2}");
+}
+}
+}
